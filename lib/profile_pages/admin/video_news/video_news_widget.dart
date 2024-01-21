@@ -15,6 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'video_news_model.dart';
 export 'video_news_model.dart';
 
@@ -795,7 +796,8 @@ class _VideoNewsWidgetState extends State<VideoNewsWidget> {
                                       await showDialog<bool>(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Удаление новости'),
                                                 content: Text(
                                                     'Вы действительно хотите удалить эту новость?'),
@@ -815,7 +817,7 @@ class _VideoNewsWidgetState extends State<VideoNewsWidget> {
                                                     child: Text('Подтвердить'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           ) ??
                                           false;

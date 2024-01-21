@@ -13,6 +13,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -1139,7 +1140,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           context: context,
                                                           builder:
                                                               (alertDialogContext) {
-                                                            return AlertDialog(
+                                                            return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
                                                               title: Text(
                                                                   'Удаление аккаунта'),
                                                               content: Text(
@@ -1162,7 +1165,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                       'Подтвердить'),
                                                                 ),
                                                               ],
-                                                            );
+                                                            ));
                                                           },
                                                         ) ??
                                                         false;

@@ -27,6 +27,20 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "notification",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "n_readed",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "n_date",
+          "order": "DESCENDING"
+        }
+      ]
     }
   ]
 }

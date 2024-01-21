@@ -61,6 +61,11 @@ class VideoRecord extends FirestoreRecord {
   int get numViews => _numViews ?? 0;
   bool hasNumViews() => _numViews != null;
 
+  // "coments_Ref" field.
+  DocumentReference? _comentsRef;
+  DocumentReference? get comentsRef => _comentsRef;
+  bool hasComentsRef() => _comentsRef != null;
+
   // "tags" field.
   List<DocumentReference>? _tags;
   List<DocumentReference> get tags => _tags ?? const [];
@@ -91,6 +96,7 @@ class VideoRecord extends FirestoreRecord {
     _numLikes = castToType<int>(snapshotData['num_likes']);
     _category = snapshotData['category'] as String?;
     _numViews = castToType<int>(snapshotData['num_views']);
+    _comentsRef = snapshotData['coments_Ref'] as DocumentReference?;
     _tags = getDataList(snapshotData['tags']);
     _postVideo = snapshotData['post_video'] as String?;
     _videoOblozhka = snapshotData['video_oblozhka'] as String?;
@@ -139,6 +145,7 @@ Map<String, dynamic> createVideoRecordData({
   int? numLikes,
   String? category,
   int? numViews,
+  DocumentReference? comentsRef,
   String? postVideo,
   String? videoOblozhka,
 }) {
@@ -152,6 +159,7 @@ Map<String, dynamic> createVideoRecordData({
       'num_likes': numLikes,
       'category': category,
       'num_views': numViews,
+      'coments_Ref': comentsRef,
       'post_video': postVideo,
       'video_oblozhka': videoOblozhka,
     }.withoutNulls,
@@ -175,6 +183,7 @@ class VideoRecordDocumentEquality implements Equality<VideoRecord> {
         e1?.numLikes == e2?.numLikes &&
         e1?.category == e2?.category &&
         e1?.numViews == e2?.numViews &&
+        e1?.comentsRef == e2?.comentsRef &&
         listEquality.equals(e1?.tags, e2?.tags) &&
         e1?.postVideo == e2?.postVideo &&
         e1?.videoOblozhka == e2?.videoOblozhka &&
@@ -192,6 +201,7 @@ class VideoRecordDocumentEquality implements Equality<VideoRecord> {
         e?.numLikes,
         e?.category,
         e?.numViews,
+        e?.comentsRef,
         e?.tags,
         e?.postVideo,
         e?.videoOblozhka,

@@ -13,6 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'main_model.dart';
 export 'main_model.dart';
 
@@ -87,7 +88,8 @@ class _MainWidgetState extends State<MainWidget> {
         backgroundColor: Color(0xFFEFEFEB),
         drawer: Container(
           width: MediaQuery.sizeOf(context).width * 0.7,
-          child: Drawer(
+          child: WebViewAware(
+              child: Drawer(
             elevation: 16.0,
             child: wrapWithModel(
               model: _model.menuPopupModel,
@@ -101,7 +103,7 @@ class _MainWidgetState extends State<MainWidget> {
                 },
               ),
             ),
-          ),
+          )),
         ),
         body: Column(
           mainAxisSize: MainAxisSize.max,

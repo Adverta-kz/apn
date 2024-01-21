@@ -69,15 +69,30 @@ class NewsRecord extends FirestoreRecord {
   int get numViews => _numViews ?? 0;
   bool hasNumViews() => _numViews != null;
 
+  // "coments_Ref" field.
+  DocumentReference? _comentsRef;
+  DocumentReference? get comentsRef => _comentsRef;
+  bool hasComentsRef() => _comentsRef != null;
+
   // "viewed" field.
   List<DocumentReference>? _viewed;
   List<DocumentReference> get viewed => _viewed ?? const [];
   bool hasViewed() => _viewed != null;
 
+  // "post_text" field.
+  List<NewsPartStruct>? _postText;
+  List<NewsPartStruct> get postText => _postText ?? const [];
+  bool hasPostText() => _postText != null;
+
   // "tag" field.
   List<String>? _tag;
   List<String> get tag => _tag ?? const [];
   bool hasTag() => _tag != null;
+
+  // "breaking_news" field.
+  bool? _breakingNews;
+  bool get breakingNews => _breakingNews ?? false;
+  bool hasBreakingNews() => _breakingNews != null;
 
   void _initializeFields() {
     _postPhoto = snapshotData['post_photo'] as String?;
@@ -90,8 +105,14 @@ class NewsRecord extends FirestoreRecord {
     _numLikes = castToType<int>(snapshotData['num_likes']);
     _category = snapshotData['category'] as String?;
     _numViews = castToType<int>(snapshotData['num_views']);
+    _comentsRef = snapshotData['coments_Ref'] as DocumentReference?;
     _viewed = getDataList(snapshotData['viewed']);
+    _postText = getStructList(
+      snapshotData['post_text'],
+      NewsPartStruct.fromMap,
+    );
     _tag = getDataList(snapshotData['tag']);
+    _breakingNews = snapshotData['breaking_news'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -153,6 +174,11 @@ class NewsRecord extends FirestoreRecord {
             ParamType.int,
             false,
           ),
+          'coments_Ref': convertAlgoliaParam(
+            snapshot.data['coments_Ref'],
+            ParamType.DocumentReference,
+            false,
+          ),
           'viewed': safeGet(
             () => convertAlgoliaParam<DocumentReference>(
               snapshot.data['viewed'],
@@ -160,9 +186,15 @@ class NewsRecord extends FirestoreRecord {
               true,
             ).toList(),
           ),
+          'post_text': safeGet(
+            () => (snapshot.data['post_text'] as Iterable)
+                .map((d) => NewsPartStruct.fromAlgoliaData(d).toMap())
+                .toList(),
+          ),
           'tag': safeGet(
             () => snapshot.data['tag'].toList(),
           ),
+          'breaking_news': snapshot.data['breaking_news'],
         },
         NewsRecord.collection.doc(snapshot.objectID),
       );
@@ -208,6 +240,8 @@ Map<String, dynamic> createNewsRecordData({
   int? numLikes,
   String? category,
   int? numViews,
+  DocumentReference? comentsRef,
+  bool? breakingNews,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -220,6 +254,8 @@ Map<String, dynamic> createNewsRecordData({
       'num_likes': numLikes,
       'category': category,
       'num_views': numViews,
+      'coments_Ref': comentsRef,
+      'breaking_news': breakingNews,
     }.withoutNulls,
   );
 
@@ -242,8 +278,11 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
         e1?.numLikes == e2?.numLikes &&
         e1?.category == e2?.category &&
         e1?.numViews == e2?.numViews &&
+        e1?.comentsRef == e2?.comentsRef &&
         listEquality.equals(e1?.viewed, e2?.viewed) &&
-        listEquality.equals(e1?.tag, e2?.tag);
+        listEquality.equals(e1?.postText, e2?.postText) &&
+        listEquality.equals(e1?.tag, e2?.tag) &&
+        e1?.breakingNews == e2?.breakingNews;
   }
 
   @override
@@ -258,8 +297,11 @@ class NewsRecordDocumentEquality implements Equality<NewsRecord> {
         e?.numLikes,
         e?.category,
         e?.numViews,
+        e?.comentsRef,
         e?.viewed,
-        e?.tag
+        e?.postText,
+        e?.tag,
+        e?.breakingNews
       ]);
 
   @override

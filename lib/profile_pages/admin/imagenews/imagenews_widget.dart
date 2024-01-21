@@ -16,6 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'imagenews_model.dart';
 export 'imagenews_model.dart';
 
@@ -808,7 +809,8 @@ class _ImagenewsWidgetState extends State<ImagenewsWidget>
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
-                                      return AlertDialog(
+                                      return WebViewAware(
+                                          child: AlertDialog(
                                         title: Text('Ошибка'),
                                         content: Text('Выберите категорию'),
                                         actions: [
@@ -818,7 +820,7 @@ class _ImagenewsWidgetState extends State<ImagenewsWidget>
                                             child: Text('Ок'),
                                           ),
                                         ],
-                                      );
+                                      ));
                                     },
                                   );
                                   return;
@@ -927,7 +929,8 @@ class _ImagenewsWidgetState extends State<ImagenewsWidget>
                                       await showDialog<bool>(
                                             context: context,
                                             builder: (alertDialogContext) {
-                                              return AlertDialog(
+                                              return WebViewAware(
+                                                  child: AlertDialog(
                                                 title: Text('Удаление новости'),
                                                 content: Text(
                                                     'Вы действительно хотите удалить эту новость?'),
@@ -947,7 +950,7 @@ class _ImagenewsWidgetState extends State<ImagenewsWidget>
                                                     child: Text('Подтвердить'),
                                                   ),
                                                 ],
-                                              );
+                                              ));
                                             },
                                           ) ??
                                           false;

@@ -71,15 +71,30 @@ class UsersRecord extends FirestoreRecord {
   String get sex => _sex ?? '';
   bool hasSex() => _sex != null;
 
+  // "likes" field.
+  List<DocumentReference>? _likes;
+  List<DocumentReference> get likes => _likes ?? const [];
+  bool hasLikes() => _likes != null;
+
   // "post_likes_news" field.
   List<DocumentReference>? _postLikesNews;
   List<DocumentReference> get postLikesNews => _postLikesNews ?? const [];
   bool hasPostLikesNews() => _postLikesNews != null;
 
+  // "post_likes_video" field.
+  List<DocumentReference>? _postLikesVideo;
+  List<DocumentReference> get postLikesVideo => _postLikesVideo ?? const [];
+  bool hasPostLikesVideo() => _postLikesVideo != null;
+
   // "viewed" field.
   List<DocumentReference>? _viewed;
   List<DocumentReference> get viewed => _viewed ?? const [];
   bool hasViewed() => _viewed != null;
+
+  // "dislikesUs" field.
+  List<DocumentReference>? _dislikesUs;
+  List<DocumentReference> get dislikesUs => _dislikesUs ?? const [];
+  bool hasDislikesUs() => _dislikesUs != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -93,8 +108,11 @@ class UsersRecord extends FirestoreRecord {
     _name = snapshotData['name'] as String?;
     _birthday = snapshotData['birthday'] as String?;
     _sex = snapshotData['sex'] as String?;
+    _likes = getDataList(snapshotData['likes']);
     _postLikesNews = getDataList(snapshotData['post_likes_news']);
+    _postLikesVideo = getDataList(snapshotData['post_likes_video']);
     _viewed = getDataList(snapshotData['viewed']);
+    _dislikesUs = getDataList(snapshotData['dislikesUs']);
   }
 
   static CollectionReference get collection =>
@@ -179,8 +197,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.name == e2?.name &&
         e1?.birthday == e2?.birthday &&
         e1?.sex == e2?.sex &&
+        listEquality.equals(e1?.likes, e2?.likes) &&
         listEquality.equals(e1?.postLikesNews, e2?.postLikesNews) &&
-        listEquality.equals(e1?.viewed, e2?.viewed);
+        listEquality.equals(e1?.postLikesVideo, e2?.postLikesVideo) &&
+        listEquality.equals(e1?.viewed, e2?.viewed) &&
+        listEquality.equals(e1?.dislikesUs, e2?.dislikesUs);
   }
 
   @override
@@ -196,8 +217,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.name,
         e?.birthday,
         e?.sex,
+        e?.likes,
         e?.postLikesNews,
-        e?.viewed
+        e?.postLikesVideo,
+        e?.viewed,
+        e?.dislikesUs
       ]);
 
   @override

@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'search_page_model.dart';
 export 'search_page_model.dart';
 
@@ -101,7 +102,8 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
             backgroundColor: Color(0xFFEFEFEB),
             drawer: Container(
               width: MediaQuery.sizeOf(context).width * 0.7,
-              child: Drawer(
+              child: WebViewAware(
+                  child: Drawer(
                 elevation: 16.0,
                 child: wrapWithModel(
                   model: _model.menuPopupModel,
@@ -115,7 +117,7 @@ class _SearchPageWidgetState extends State<SearchPageWidget> {
                     },
                   ),
                 ),
-              ),
+              )),
             ),
             body: Column(
               mainAxisSize: MainAxisSize.max,

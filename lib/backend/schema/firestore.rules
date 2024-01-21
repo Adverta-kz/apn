@@ -15,6 +15,25 @@ service cloud.firestore {
       allow delete: if true;
     }
 
+    match /coments/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /coments/{parent}/answer_coments/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/answer_coments/{document} {
+      allow read: if true;
+    }
+
+
     match /tags/{document} {
       allow create: if true;
       allow read: if true;
@@ -49,5 +68,17 @@ service cloud.firestore {
       allow write: if true;
       allow delete: if true;
     }
+
+    match /users/{parent}/notification/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/notification/{document} {
+      allow read: if true;
+    }
+
   }
 }
