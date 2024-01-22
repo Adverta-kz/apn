@@ -5,12 +5,13 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyAzY0DZ2OKQC_ccJcncPim-ybSZO61G7-4",
-            authDomain: "apnnews-dd790.firebaseapp.com",
-            projectId: "apnnews-dd790",
-            storageBucket: "apnnews-dd790.appspot.com",
-            messagingSenderId: "813232080916",
-            appId: "1:813232080916:web:8571dad421810410657f01"));
+            apiKey: "AIzaSyBsvyxQdMS-ySALBiAlInEpqXYZVx2CaW4",
+            authDomain: "news-8eabc.firebaseapp.com",
+            projectId: "news-8eabc",
+            storageBucket: "news-8eabc.appspot.com",
+            messagingSenderId: "274111285729",
+            appId: "1:274111285729:web:c13b3a5ed511776af2eaa0",
+            measurementId: "G-ZLR0FJ46LG"));
   } else {
     await Firebase.initializeApp();
   }

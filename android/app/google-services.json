@@ -1,26 +1,131 @@
 {
   "project_info": {
-    "project_number": "813232080916",
-    "project_id": "apnnews-dd790",
-    "storage_bucket": "apnnews-dd790.appspot.com"
+    "project_number": "274111285729",
+    "project_id": "news-8eabc",
+    "storage_bucket": "news-8eabc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:813232080916:android:342aebf35eaddfdf657f01",
+        "mobilesdk_app_id": "1:274111285729:android:b223491f94bae2c0f2eaa0",
         "android_client_info": {
-          "package_name": "com.PNAFlutterFlow.news"
+          "package_name": "com.PNA.news"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "274111285729-vmkk18guogebaqfkv7lkkr29l503dcsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.PNA.news",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "274111285729-coit5d44b86p3iuor56h8b7osg29htel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAuPhsebNVgyWRqpYTFEqN7JcOUD4C-RBA"
+          "current_key": "AIzaSyDGIOGaY4LYr9u2WrgVx4EnpPnOeVi77L4"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274111285729-3812jllgfbcu9b5v2150ll8t6mokckba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "274111285729-1tndgfoqnpkleqs53k7j6mmch84jqu2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.PNAFlutterFlow.news"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274111285729:android:28964a8871624954f2eaa0",
+        "android_client_info": {
+          "package_name": "com.PNAFlutterFlow.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274111285729-kfi8d2e3dtiko1n77g57k8erqf0t1u7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.PNAFlutterFlow.news",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "274111285729-coit5d44b86p3iuor56h8b7osg29htel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGIOGaY4LYr9u2WrgVx4EnpPnOeVi77L4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274111285729-3812jllgfbcu9b5v2150ll8t6mokckba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "274111285729-1tndgfoqnpkleqs53k7j6mmch84jqu2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.PNAFlutterFlow.news"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274111285729:android:52e4cc55c18939a1f2eaa0",
+        "android_client_info": {
+          "package_name": "com.mycompany.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274111285729-coit5d44b86p3iuor56h8b7osg29htel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGIOGaY4LYr9u2WrgVx4EnpPnOeVi77L4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274111285729-3812jllgfbcu9b5v2150ll8t6mokckba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "274111285729-1tndgfoqnpkleqs53k7j6mmch84jqu2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.PNAFlutterFlow.news"
+              }
+            }
+          ]
         }
       }
     }

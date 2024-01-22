@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>274111285729-1tndgfoqnpkleqs53k7j6mmch84jqu2l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.274111285729-1tndgfoqnpkleqs53k7j6mmch84jqu2l</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>274111285729-kfi8d2e3dtiko1n77g57k8erqf0t1u7q.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD--YpT60bnumkAeVhjLHAy3RxoM-utfoo</string>
+	<string>AIzaSyCtG8HfP9Sq15cP5y7lEDt26HKo_h2FQKQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>813232080916</string>
+	<string>274111285729</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.PNAFlutterFlow.news</string>
 	<key>PROJECT_ID</key>
-	<string>apnnews-dd790</string>
+	<string>news-8eabc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>apnnews-dd790.appspot.com</string>
+	<string>news-8eabc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:813232080916:ios:9fc09054ef38dd32657f01</string>
+	<string>1:274111285729:ios:d425c6758dd0def2f2eaa0</string>
 </dict>
 </plist>
