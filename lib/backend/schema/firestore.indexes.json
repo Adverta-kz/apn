@@ -15,20 +15,6 @@
       ]
     },
     {
-      "collectionGroup": "news",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "category",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "num_likes",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
       "collectionGroup": "notification",
       "queryScope": "COLLECTION",
       "fields": [

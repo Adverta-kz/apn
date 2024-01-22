@@ -78,7 +78,16 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('main');
+                              context.pushNamed(
+                                'main',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.2,
@@ -150,7 +159,16 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('SearchPage');
+                              context.pushNamed(
+                                'SearchPage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.2,
@@ -230,9 +248,27 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (loggedIn) {
-                                context.pushNamed('newsListFavorite');
+                                context.pushNamed(
+                                  'newsListFavorite',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
                               } else {
-                                context.pushNamed('WelcomeSlider');
+                                context.pushNamed(
+                                  'WelcomeSlider',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
                               }
                             },
                             child: Container(
@@ -306,9 +342,27 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               if (loggedIn) {
-                                context.pushNamed('Profile');
+                                context.pushNamed(
+                                  'Profile',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
                               } else {
-                                context.pushNamed('WelcomeSlider');
+                                context.pushNamed(
+                                  'WelcomeSlider',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
                               }
                             },
                             child: Container(

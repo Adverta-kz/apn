@@ -152,11 +152,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => NewsListWidget(),
         ),
         FFRoute(
-          name: 'tagList',
-          path: '/tagList',
-          builder: (context, params) => TagListWidget(),
-        ),
-        FFRoute(
           name: 'videoList',
           path: '/videoList',
           builder: (context, params) => VideoListWidget(),
@@ -239,33 +234,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'mainCopy',
-          path: '/mainCopy',
-          builder: (context, params) => MainCopyWidget(
-            selectedChoiseChip:
-                params.getParam('selectedChoiseChip', ParamType.String),
-          ),
-        ),
-        FFRoute(
           name: 'main',
           path: '/main',
           builder: (context, params) => MainWidget(
-            selectedChoiseChip:
-                params.getParam('selectedChoiseChip', ParamType.String),
-          ),
-        ),
-        FFRoute(
-          name: 'mainCopy2',
-          path: '/mainCopy2',
-          builder: (context, params) => MainCopy2Widget(
-            selectedChoiseChip:
-                params.getParam('selectedChoiseChip', ParamType.String),
-          ),
-        ),
-        FFRoute(
-          name: 'mainCopy2Copy',
-          path: '/mainCopy2Copy',
-          builder: (context, params) => MainCopy2CopyWidget(
             selectedChoiseChip:
                 params.getParam('selectedChoiseChip', ParamType.String),
           ),
@@ -279,18 +250,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'newsVideoListNew',
           path: '/newsVideoListNew',
           builder: (context, params) => NewsVideoListNewWidget(),
-        ),
-        FFRoute(
-          name: 'newProfileSettings',
-          path: '/newProfileSettings',
-          builder: (context, params) => NewProfileSettingsWidget(),
-        ),
-        FFRoute(
-          name: 'SearchPageCopy',
-          path: '/searchPageCopy',
-          builder: (context, params) => SearchPageCopyWidget(
-            searchable: params.getParam('searchable', ParamType.String),
-          ),
         ),
         FFRoute(
           name: 'resetPassword',
@@ -321,6 +280,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ChoosedCatWidget(
             category: params.getParam('category', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'newProfileSettings',
+          path: '/newProfileSettings',
+          builder: (context, params) => NewProfileSettingsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

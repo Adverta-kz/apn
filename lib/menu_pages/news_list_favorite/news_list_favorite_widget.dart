@@ -4,12 +4,14 @@ import '/components/nav_bar_floting_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/profile_pages/menu_popup/menu_popup_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'news_list_favorite_model.dart';
 export 'news_list_favorite_model.dart';
 
@@ -60,6 +62,20 @@ class _NewsListFavoriteWidgetState extends State<NewsListFavoriteWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Container(
+          width: 70.0,
+          child: WebViewAware(
+              child: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.menuPopupModel,
+              updateCallback: () => setState(() {}),
+              child: MenuPopupWidget(
+                actforclose: () async {},
+              ),
+            ),
+          )),
+        ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,10 +102,19 @@ class _NewsListFavoriteWidgetState extends State<NewsListFavoriteWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.sort_rounded,
-                            color: FlutterFlowTheme.of(context).accent1,
-                            size: 35.0,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              scaffoldKey.currentState!.openDrawer();
+                            },
+                            child: Icon(
+                              Icons.sort_rounded,
+                              color: FlutterFlowTheme.of(context).accent1,
+                              size: 35.0,
+                            ),
                           ),
                           Text(
                             'Закладки',
@@ -109,10 +134,19 @@ class _NewsListFavoriteWidgetState extends State<NewsListFavoriteWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('main');
+                              context.pushNamed(
+                                'SearchPage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
                             },
                             child: Icon(
-                              Icons.sort_by_alpha,
+                              Icons.sort,
                               color: FlutterFlowTheme.of(context).accent1,
                               size: 35.0,
                             ),

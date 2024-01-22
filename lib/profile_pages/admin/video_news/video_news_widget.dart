@@ -523,6 +523,8 @@ class _VideoNewsWidgetState extends State<VideoNewsWidget> {
                                                 onTap: () async {
                                                   final selectedMedia =
                                                       await selectMedia(
+                                                    maxWidth: 300.00,
+                                                    maxHeight: 300.00,
                                                     imageQuality: 80,
                                                     mediaSource: MediaSource
                                                         .photoGallery,

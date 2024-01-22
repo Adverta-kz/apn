@@ -407,7 +407,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed('Registration');
+                                            context.pushNamed(
+                                              'Registration',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
                                           },
                                           child: RichText(
                                             textScaleFactor:
@@ -532,7 +544,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('resetPassword');
+                                        context.pushNamed(
+                                          'resetPassword',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
                                       },
                                       child: RichText(
                                         textScaleFactor: MediaQuery.of(context)
@@ -621,21 +644,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     desktop: false,
                                   ))
                                     FFButtonWidget(
-                                      onPressed: () async {
-                                        GoRouter.of(context).prepareAuthEvent();
-
-                                        final user =
-                                            await authManager.signInWithEmail(
-                                          context,
-                                          _model.emailTextController.text,
-                                          _model.passwordTextController.text,
-                                        );
-                                        if (user == null) {
-                                          return;
-                                        }
-
-                                        context.goNamedAuth(
-                                            'main', context.mounted);
+                                      onPressed: () {
+                                        print('Button pressed ...');
                                       },
                                       text: 'Продолжить с Apple',
                                       icon: Icon(
@@ -688,17 +698,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       desktop: false,
                                     ))
                                       FFButtonWidget(
-                                        onPressed: () async {
-                                          GoRouter.of(context)
-                                              .prepareAuthEvent();
-                                          final user = await authManager
-                                              .signInWithFacebook(context);
-                                          if (user == null) {
-                                            return;
-                                          }
-
-                                          context.goNamedAuth(
-                                              'main', context.mounted);
+                                        onPressed: () {
+                                          print('Button pressed ...');
                                         },
                                         text: 'Продолжить с Facebook',
                                         icon: Icon(

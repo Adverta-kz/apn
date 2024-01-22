@@ -10,7 +10,6 @@ import '../../flutter_flow/flutter_flow_util.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stream_transform/stream_transform.dart';
-import 'facebook_auth.dart';
 import 'anonymous_auth.dart';
 import 'apple_auth.dart';
 import 'email_auth.dart';
@@ -49,7 +48,6 @@ class FirebaseAuthManager extends AuthManager
         EmailSignInManager,
         GoogleSignInManager,
         AppleSignInManager,
-        FacebookSignInManager,
         AnonymousSignInManager,
         JwtSignInManager,
         GithubSignInManager,
@@ -103,7 +101,7 @@ class FirebaseAuthManager extends AuthManager
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
               content: Text(
-                  'Последний вход был слишком давно, зайдите в аккаунт еще раз чтобы оббновить e-mail адрес')),
+                  'Последний вход был слишком давно, зайдите в аккаунт еще раз чтобы обновить e-mail адрес')),
         );
       }
     }
@@ -119,9 +117,7 @@ class FirebaseAuthManager extends AuthManager
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text('Произошла ошибка при аутентификации, [error]'
-                .replaceAll('[error]', e.message!))),
+        SnackBar(content: Text('Произошла ошибка при аутентификации')),
       );
       return null;
     }
@@ -194,8 +190,7 @@ class FirebaseAuthManager extends AuthManager
       } else if (phoneAuthManager.phoneAuthError != null) {
         final e = phoneAuthManager.phoneAuthError!;
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Произошла ошибка при аутентификации, [error]'
-              .replaceAll('[error]', e.message!)),
+          content: Text('Произошла ошибка при аутентификации'),
         ));
         phoneAuthManager.update(() => phoneAuthManager.phoneAuthError = null);
       }
@@ -284,10 +279,6 @@ class FirebaseAuthManager extends AuthManager
     }
   }
 
-  @override
-  Future<BaseAuthUser?> signInWithFacebook(BuildContext context) =>
-      _signInOrCreateAccount(context, facebookSignIn, 'FACEBOOK');
-
   /// Tries to sign in or create an account using Firebase Auth.
   /// Returns the User object if sign in was successful.
   Future<BaseAuthUser?> _signInOrCreateAccount(
@@ -306,8 +297,7 @@ class FirebaseAuthManager extends AuthManager
     } on FirebaseAuthException catch (e) {
       final errorMsg = e.message?.contains('auth/email-already-in-use') ?? false
           ? 'Данный e-mail адрес уже используется'
-          : 'Произошла ошибка при аутентификации, [error]'
-              .replaceAll('[error]', e.message!);
+          : 'Произошла ошибка при аутентификации';
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(errorMsg)),

@@ -439,6 +439,8 @@ class _ImagenewsWidgetState extends State<ImagenewsWidget>
                                                   final selectedMedia =
                                                       await selectMediaWithSourceBottomSheet(
                                                     context: context,
+                                                    maxWidth: 300.00,
+                                                    maxHeight: 300.00,
                                                     imageQuality: 80,
                                                     allowPhoto: true,
                                                   );

@@ -409,6 +409,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             photoUrl: _model
                                                                 .uploadedFileUrl,
                                                           ));
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .showfulllist =
+                                                                true;
+                                                          });
                                                         },
                                                         child: Icon(
                                                           Icons.mode_edit_sharp,
